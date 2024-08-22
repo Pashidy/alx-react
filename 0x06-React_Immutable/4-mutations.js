@@ -1,7 +1,6 @@
-import { Map } from 'immutable';
+import Immutable from 'immutable';
 
-// Creating the initial Immutable Map
-export const map = Map({
+const map = Immutable.Map({
   1: 'Liam',
   2: 'Noah',
   3: 'Elijah',
@@ -10,7 +9,12 @@ export const map = Map({
   6: 'Lucas',
 });
 
-// Creating a new Map based on the first one with modified values
-export const map2 = map
-  .set(2, 'Benjamin')
-  .set(4, 'Oliver');
+const map2 = map.withMutations((mapItem) => {
+  // changes 2 of map's values
+  mapItem.set(2, 'Benjamin').set(4, 'Oliver');
+});
+
+module.exports = {
+  map,
+  map2,
+};
